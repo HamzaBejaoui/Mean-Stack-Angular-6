@@ -15,7 +15,9 @@ const express = require('express'),
     const adUnitRoutes = require('./routes/adunit.route');
     
     app.use(bodyParser.json());
-    app.use(cors());
+    app.use(cors({
+      "Header add Access-Control-Allow-Methods": "GET,POST,OPTIONS,DELETE,PUT"
+    }));
     const port = process.env.PORT || 4000;
 
     app.use('/adunits', adUnitRoutes);
